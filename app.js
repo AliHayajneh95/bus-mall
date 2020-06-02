@@ -61,6 +61,10 @@ generator();
 
 
 container.addEventListener("click", function (e) {
+    for (var i = 0; i < randomproducts.length; i++) {
+        container.removeChild(container.lastElementChild);
+    }
+
     if (rounds < 25) {
         rounds++
         var x = e.target.alt;
@@ -93,9 +97,13 @@ container.addEventListener("click", function (e) {
 
 
 function generator() {
+
     for (var i = 0; i < randomproducts.length; i++) {
 
         var rand = randomizer(0, products.length - 1);
+        
+        if(!randomproducts.includes(products[rand]))
+        {
 
         randomproducts[i] = products[rand];
         products[rand].shows++;
@@ -105,6 +113,13 @@ function generator() {
 
         console.log(e.src);
         container.appendChild(e);
+        
+        }
+        else 
+        {
+            i--;
+        }
+
     }
 }
 
