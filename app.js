@@ -15,6 +15,10 @@ Product.prototype =
 
 //global variables
 
+var ctx = document.getElementById('myChart');
+
+
+
 var played = false;
 var rounds = 0;
 var products = new Array(19);
@@ -85,6 +89,110 @@ container.addEventListener("click", function (e) {
             console.log(products[i].name + ": showed: " + products[i].shows + " clicked: " + products[i].clicks);
         }
         played = true;
+
+        var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [products[0].name,
+                 products[1].name,
+                 products[2].name,
+                 products[3].name,
+                 products[4].name,
+                 products[5].name,
+                 products[6].name,
+                 products[7].name,
+                 products[8].name,
+                 products[9].name,
+                 products[10].name,
+                 products[11].name,
+                 products[12].name,
+                 products[13].name,
+                 products[14].name,
+                 products[15].name,
+                 products[16].name,
+                 products[17].name,
+                 products[18].name,
+                 products[19].name],
+        datasets: [{
+            label: '# of Votes', 
+            data: [products[0].clicks,
+            products[1].clicks,
+            products[2].clicks,
+            products[3].clicks,
+            products[4].clicks,
+            products[5].clicks,
+            products[6].clicks,
+            products[7].clicks,
+            products[8].clicks,
+            products[9].clicks,
+            products[10].clicks,
+            products[11].clicks,
+            products[12].clicks,
+            products[13].clicks,
+            products[14].clicks,
+            products[15].clicks,
+            products[16].clicks,
+            products[17].clicks,
+            products[18].clicks,
+            products[19].clicks],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+        
     }
 });
 
