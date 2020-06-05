@@ -56,6 +56,8 @@ products[19] = new Product("wine-glass", "img/wine-glass.jpg");
 
 // generate random images
 
+if(window.localStorage.length != 0)
+    products = JSON.parse(localStorage.getItem("products"));
 
 var container = document.getElementById("1");
 generator();
@@ -79,8 +81,8 @@ container.addEventListener("click", function (e) {
                 console.log("round:" + rounds);
             }
         }
-
         generator();
+        localStorage.setItem("products", JSON.stringify(products));
     }
 
     else if(!played)
@@ -195,6 +197,7 @@ container.addEventListener("click", function (e) {
         
     }
 });
+
 
 
 //execution ends here
